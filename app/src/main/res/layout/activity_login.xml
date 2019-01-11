@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/mine"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="95dp"
+            />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="40dp"
+            android:text="账  号："
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="40dp"
+            android:text="密  码："
+            android:textSize="20dp"
+            />
+
+        <EditText
+            android:id="@+id/account"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:hint="在这里输入账号"
+            android:layout_below="@id/imageView"
+            android:layout_toRightOf="@+id/textView"
+            android:layout_alignBaseline="@+id/textView"
+            android:layout_marginLeft="8dp"
+            android:singleLine="true"
+            />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:hint="在这里输入密码"
+            android:layout_below="@id/account"
+            android:layout_alignBaseline="@+id/textView2"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_marginLeft="8dp"
+            android:singleLine="true"
+            />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="登    陆"
+            android:layout_below="@id/textView2"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="50dp"
+            android:textSize="20dp"
+            />
+
+        <Button
+            android:id="@+id/resiger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注    册"
+            android:layout_below="@id/textView2"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="185dp"
+            android:textSize="20dp"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

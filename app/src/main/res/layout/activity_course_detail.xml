@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CourseDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation_view_coursedatail"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/course"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="125dp"/>
+        <TextView
+            android:id="@+id/course_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="课程名"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/course_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="课程编号"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/teacher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="任课教师"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/start_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="开始时间"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/end_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="结束时间"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/remind_method"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="提醒方式"
+            android:textSize="24dp"/>
+    </LinearLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation_view_coursedatail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/menu_bottom_coursedetail"></android.support.design.widget.BottomNavigationView>
+
+</RelativeLayout>

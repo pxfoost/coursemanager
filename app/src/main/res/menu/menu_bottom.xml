@@ -7,7 +7,7 @@
     <item
         android:id="@+id/course"
         android:title="课程"
-        android:icon="@drawable/course"/>
+        android:icon="@drawable/course" />
     <item
         android:id="@+id/mine"
         android:title="我的"
