@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "Table_UserMsg")
 public class UserEntity {
     @PrimaryKey
-    public long studentID;
+    public String student_ID;
 
     public String password;
 
