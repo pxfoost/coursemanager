@@ -1,5 +1,6 @@
 package com.kth.groups.coursemanager.database.table;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -7,7 +8,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "Table_UserMsg")
 public class UserEntity {
     @PrimaryKey
-    public String student_ID;
+    @NonNull public String student_ID;
 
     public String password;
 

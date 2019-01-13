@@ -44,7 +44,7 @@
             />
 
         <EditText
-            android:id="@+id/account"
+            android:id="@+id/editText_account"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:hint="在这里输入账号"
@@ -56,11 +56,11 @@
             />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/editText_password"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:hint="在这里输入密码"
-            android:layout_below="@id/account"
+            android:layout_below="@id/editText_account"
             android:layout_alignBaseline="@+id/textView2"
             android:layout_toRightOf="@+id/textView2"
             android:layout_marginLeft="8dp"
@@ -68,7 +68,7 @@
             />
 
         <Button
-            android:id="@+id/login"
+            android:id="@+id/btw_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="登    陆"
@@ -79,7 +79,7 @@
             />
 
         <Button
-            android:id="@+id/resiger"
+            android:id="@+id/btw_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="注    册"
