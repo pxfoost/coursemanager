@@ -6,60 +6,137 @@
     android:layout_height="match_parent"
     tools:context=".CourseDetailActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_navigation_view_coursedatail"
-        android:orientation="vertical">
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/course"
-            android:layout_marginTop="80dp"
-            android:layout_marginLeft="125dp"/>
-        <TextView
-            android:id="@+id/course_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="课程名"
-            android:textSize="24dp"/>
-        <TextView
-            android:id="@+id/course_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="课程编号"
-            android:textSize="24dp"/>
-        <TextView
-            android:id="@+id/teacher"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="任课教师"
-            android:textSize="24dp"/>
-        <TextView
-            android:id="@+id/start_time"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="开始时间"
-            android:textSize="24dp"/>
-        <TextView
-            android:id="@+id/end_time"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="结束时间"
-            android:textSize="24dp"/>
-        <TextView
-            android:id="@+id/remind_method"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="提醒方式"
-            android:textSize="24dp"/>
-    </LinearLayout>
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_view_course_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:menu="@menu/menu_bottom_course_details" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation_view_course_detail"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="课程名:"
+                android:textSize="24dp" />
+            <EditText
+                android:id="@+id/editText_course_name1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="课程编号:"
+                android:textSize="24dp"/>
+
+            <EditText
+                android:id="@+id/editText_course_id1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="任课教师:"
+                android:textSize="24dp"/>
+            <EditText
+                android:id="@+id/editText_teacher1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="开始时间:"
+                android:textSize="24dp"
+                android:inputType="datetime"/>
+            <EditText
+                android:id="@+id/editText_start_time1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="结束时间:"
+                android:textSize="24dp"/>
+
+            <EditText
+                android:id="@+id/editText_end_time1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/radio_group1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="提醒方式:"
+                android:textSize="24dp"/>
+            <RadioButton
+                android:id="@+id/radioButton_silence1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="静音"
+                android:textSize="24dp"/>
+            <RadioButton
+                android:id="@+id/radioButton_shake1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="震动"
+                android:textSize="24dp"/>
+            <RadioButton
+                android:id="@+id/radioButton_alarm1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="闹铃"
+                android:textSize="24dp"/>
+            <RadioButton
+                android:id="@+id/radioButton_shakeAndAlarm1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="震动和闹铃"
+                android:textSize="24dp"/>
+        </RadioGroup>
+    </LinearLayout>
+
+
 
 </RelativeLayout>

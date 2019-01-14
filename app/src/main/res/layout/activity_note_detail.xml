@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NoteDetailActivity"
+    android:orientation="vertical">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/menu_bottom_note_details"></com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/textView_note_name1"
+            android:layout_width="match_parent"
+            android:hint="笔记名"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/textView_note_course_name1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="课程名"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/textView_text1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="笔记内容"
+            android:textSize="24dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/textView_note_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/course_item_picture"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/textView_note_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="笔记名"
+            android:textSize="22dp"
+            android:textColor="#000000"
+            android:maxLines="1"/>
+        <TextView
+            android:id="@+id/textView_note_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="内容"
+            android:textSize="15dp"
+            android:maxLines="1"/>
+    </LinearLayout>
+
+</LinearLayout>

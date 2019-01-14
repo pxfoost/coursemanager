@@ -20,11 +20,17 @@ public interface CourseDao {
     @Query("select * from Table_Course")
     List<CourseEntity> getAll();
 
+    @Query("select * from Table_Course where student_ID = :student_ID")
+    List<CourseEntity> getAllByStudentID(String student_ID);
+
     @Insert
     void add(CourseEntity... entities);
 
     @Delete
     void delete(CourseEntity entity);
+
+//    @Delete("delete from Table_Course where id = :id")
+//    void delete(long id);
 
     @Update
     void update(CourseEntity entity);

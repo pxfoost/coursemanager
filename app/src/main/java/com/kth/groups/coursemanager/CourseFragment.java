@@ -1,108 +1,117 @@
 package com.kth.groups.coursemanager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.ListFragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.kth.groups.coursemanager.database.AppDatabase;
+import com.kth.groups.coursemanager.database.dao.CourseDao;
+import com.kth.groups.coursemanager.database.table.CourseEntity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link CourseFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link CourseFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CourseFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private CourseDao courseDao = AppDatabase.getsInstance().getCourseDao();
+    private static String student_ID;
+    private CourseAdapter courseAdapter;
+    private List<CourseEntity> list;
+    private ListView list_item_course;
+    FloatingActionButton fab;
 
-    private OnFragmentInteractionListener mListener;
 
-    public CourseFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CourseFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CourseFragment newInstance(String param1, String param2) {
+    public static CourseFragment newInstance(String stuId) {
         CourseFragment fragment = new CourseFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+        student_ID = stuId;
+
+        Log.d("student_ID:",student_ID);
+
         return fragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_course, container, false);
-    }
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_course, container, false);
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+        return view;
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+
+        //点击课程界面的添加按钮是时，跳转到添加页面
+        fab = view.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CourseModifyActivity.class);
+                intent.putExtra("student_ID", student_ID);
+                startActivity(intent);
+            }
+        });
+
+        //从数据库读取课程信息，并显示
+        list = courseDao.getAllByStudentID(student_ID);
+        //list = courseDao.getAll();
+
+        for(int i=0;i<list.size();i++){
+            CourseEntity a = list.get(i);
+            Log.d("CourseEntity:",a.getCourse_name());
         }
+
+        courseAdapter = new CourseAdapter(requireContext(), list);
+        ListView listView = view.findViewById(R.id.list_item_course);
+        listView.setAdapter(courseAdapter);
+
+
+        //点击列表的一行，跳转到课程详细信息显示界面
+        list_item_course = view.findViewById(R.id.list_item_course);
+        list_item_course.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                CourseEntity courseEntity = list.get(position);
+
+                Bundle bundle = new Bundle();
+                bundle.putLong("id",courseEntity.getId());
+                bundle.putString("student_ID",courseEntity.getStudent_ID());
+                bundle.putString("course_ID",courseEntity.getCourse_ID());
+                bundle.putString("course_name",courseEntity.getCourse_name());
+                bundle.putString("teacher",courseEntity.getTeacher());
+                bundle.putInt("start_time",courseEntity.getStart_time());
+                bundle.putInt("end_time",courseEntity.getEnd_time());
+                bundle.putInt("remind_method",courseEntity.getRemind_method());
+
+                Intent intent = new Intent(getActivity(),CourseDetailActivity.class);
+                intent.putExtra("courseEntity",bundle);
+                startActivity(intent);
+
+            }
+        });
+
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
+
 }

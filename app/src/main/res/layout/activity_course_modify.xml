@@ -13,15 +13,22 @@
         android:layout_above="@+id/linearlayout1"
         android:layout_centerHorizontal="true" />-->
 
-    <LinearLayout
-        android:id="@+id/linearlayout1"
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/bottom_navigation_view_coursedatail"
+        app:menu="@menu/menu_bottom_course_save"
+        android:layout_alignParentBottom="true">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation_view1"
         android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="24dp" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,11 +37,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="课程名:"
-                android:textSize="24dp"/>
+                android:textSize="24dp" />
             <EditText
-                android:id="@+id/EditText_course_name"
+                android:id="@+id/editText_course_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -46,10 +54,12 @@
                 android:layout_height="wrap_content"
                 android:text="课程编号:"
                 android:textSize="24dp"/>
+
             <EditText
                 android:id="@+id/editText_course_id"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -64,7 +74,8 @@
             <EditText
                 android:id="@+id/editText_teacher"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -75,11 +86,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="开始时间:"
-                android:textSize="24dp"/>
+                android:textSize="24dp"
+                android:inputType="datetime"/>
             <EditText
                 android:id="@+id/editText_start_time"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -91,13 +104,16 @@
                 android:layout_height="wrap_content"
                 android:text="结束时间:"
                 android:textSize="24dp"/>
+
             <EditText
                 android:id="@+id/editText_end_time"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
         </LinearLayout>
 
         <RadioGroup
+            android:id="@+id/radio_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
@@ -106,10 +122,10 @@
                 android:text="提醒方式:"
                 android:textSize="24dp"/>
             <RadioButton
-                android:id="@+id/radioButton_nothing"
+                android:id="@+id/radioButton_silence"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="无"
+                android:text="静音"
                 android:textSize="24dp"/>
             <RadioButton
                 android:id="@+id/radioButton_shake"
@@ -132,12 +148,5 @@
         </RadioGroup>
     </LinearLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/menu_bottom_course_save"
-        android:layout_alignParentBottom="true">
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </RelativeLayout>

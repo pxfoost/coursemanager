@@ -29,6 +29,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btw_register = (Button) findViewById(R.id.btw_register);
 
         btw_login.setOnClickListener(this);
+
+
         btw_register.setOnClickListener(this);
 
     }
@@ -47,7 +49,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Log.d("LoginActivity",password);
 
                 if("admin".equals(account) && "123456".equals(password)){
+
+
                     Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                    intent.putExtra("student_ID",account);
+
+
                     startActivity(intent);
                 }else{
                     Toast.makeText(LoginActivity.this,"account or password error",Toast.LENGTH_SHORT).show();

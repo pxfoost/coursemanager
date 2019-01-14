@@ -6,6 +6,7 @@ import com.kth.groups.coursemanager.database.table.NoteEntity;
 import java.util.List;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -25,5 +26,8 @@ public interface NoteDao {
      * @param entities
      */
     @Insert
-    void add(CourseEntity... entities);
+    void add(NoteEntity... entities);
+
+    @Delete
+    void delete(NoteEntity... entities);
 }
