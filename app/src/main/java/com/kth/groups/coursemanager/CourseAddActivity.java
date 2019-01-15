@@ -17,7 +17,7 @@ import com.kth.groups.coursemanager.database.AppDatabase;
 import com.kth.groups.coursemanager.database.dao.CourseDao;
 import com.kth.groups.coursemanager.database.table.CourseEntity;
 
-public class CourseModifyActivity extends AppCompatActivity {
+public class CourseAddActivity extends AppCompatActivity {
 
     private CourseDao courseDao = AppDatabase.getsInstance().getCourseDao();
     private BottomNavigationView bottomNavigationView;
@@ -35,7 +35,7 @@ public class CourseModifyActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.course_save:
                         addCourse();
-                        Toast.makeText(CourseModifyActivity.this,"添加成功",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CourseAddActivity.this,"添加成功",Toast.LENGTH_SHORT).show();
                         break;
 
                 }
@@ -51,7 +51,7 @@ public class CourseModifyActivity extends AppCompatActivity {
         EditText editText_teacher = findViewById(R.id.editText_teacher);
         EditText editText_start_time = findViewById(R.id.editText_start_time);
         EditText editText_end_time = findViewById(R.id.editText_end_time);
-        RadioGroup radioGroup = findViewById(R.id.radio_group);
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radio_group);
 
         Intent intent = getIntent();
         String student_ID = intent.getStringExtra("student_ID");
@@ -63,17 +63,19 @@ public class CourseModifyActivity extends AppCompatActivity {
 
 
         int remind_method;
+        int i=0;
 // 有问题
 //        int count = radioGroup.getChildCount();
-//        int i;
 //        for(i=0;i<count;i++){
 //            RadioButton rbt = (RadioButton) radioGroup.getChildAt(i);
 //            if(rbt.isChecked()) break;
 //        }
-        remind_method = 1;
+        remind_method = i;
+
+        Log.d("remind_method",String.valueOf(i));
+
 
         CourseEntity courseEntity = new CourseEntity();
-
         courseEntity.setStudent_ID(student_ID);
         courseEntity.setCourse_ID(course_id);
         courseEntity.setCourse_name(course_name);

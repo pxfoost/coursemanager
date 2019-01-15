@@ -9,6 +9,7 @@ import javax.security.auth.Subject;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -27,20 +28,26 @@ public interface UserDao {
      * @param student_ID 待查询用户的学号
      * @return UserEntity的一个实例
      */
-    @Query("select * from Table_UserMsg where student_ID = :student_ID")
-    UserEntity getOne(String student_ID);
+//    @Query("select * from Table_UserMsg where student_ID = :student_ID")
+//    UserEntity getOne(String student_ID);
 
     /**
      * 向数据库添加用户
      * @param entities
      */
-    @Insert
-    void add(UserEntity... entities);
+//    @Insert
+//    void add(UserEntity... entities);
 
     @Delete
     void delete(UserEntity entity);
 
     @Update
     void update(UserEntity entity);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insert(UserEntity userEntity);
+
+    @Query("SELECT * FROM Table_UserMsg WHERE student_ID = :userId")
+    UserEntity findById(String userId);
 
 }

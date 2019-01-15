@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/textView_note_image"
+        android:id="@+id/note_image"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/course_item_picture"/>

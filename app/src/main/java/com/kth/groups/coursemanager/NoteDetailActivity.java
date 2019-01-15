@@ -70,7 +70,7 @@ public class NoteDetailActivity extends AppCompatActivity {
         noteEntity.setStudent_ID(bundle.getString("student_ID"));
         noteEntity.setNote_name(bundle.getString("note_name"));
         noteEntity.setCourse_name(bundle.getString("course_name"));
-        noteEntity.setText(bundle.getString("text"));
+        noteEntity.setNote_text(bundle.getString("text"));
 
         return noteEntity;
     }

@@ -1,6 +1,7 @@
 package com.kth.groups.coursemanager;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -91,6 +92,7 @@ public class CourseDetailActivity extends AppCompatActivity {
         editText_end_time1.setText(String.valueOf(end_time));
 
        //TODO 显示提醒方式
+        Log.d("show",String.valueOf(bundle.getInt("remind_method")));
 
     }
 

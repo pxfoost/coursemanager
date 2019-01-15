@@ -37,12 +37,11 @@ public class NotesFragment extends Fragment {
     private List<NoteEntity> list;
 
     public static NotesFragment newInstance(String stuId) {
-        NotesFragment fragment = new NotesFragment();
-        student_ID = stuId;
 
+        student_ID = stuId;
         Log.d("student_ID",student_ID);
 
-        return fragment;
+        return new NotesFragment();
     }
 
 
@@ -61,7 +60,7 @@ public class NotesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        //点击跳转到笔记添加界面
+        //点击添加跳转到笔记添加界面
         fab = view.findViewById(R.id.fab1);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,10 +68,10 @@ public class NotesFragment extends Fragment {
                 Intent intent = new Intent(getActivity(),NoteAddActivity.class);
                 intent.putExtra("student_ID",student_ID);
                 startActivity(intent);
-            }
+        }
         });
 
-//        list = new ArrayList<NoteEntity>();
+//       list = new ArrayList<NoteEntity>();
 //        init();
 
         //从数据库读取数据，并显示
@@ -92,7 +91,7 @@ public class NotesFragment extends Fragment {
                 bundle.putString("student_ID",noteEntity.getStudent_ID());
                 bundle.putString("note_name",noteEntity.getNote_name());
                 bundle.putString("course_name",noteEntity.getCourse_name());
-                bundle.putString("text",noteEntity.getText());
+                bundle.putString("text",noteEntity.getNote_text());
 
                 Intent intent = new Intent(getActivity(),NoteDetailActivity.class);
                 intent.putExtra("noteEntity",bundle);
@@ -110,7 +109,7 @@ public class NotesFragment extends Fragment {
             aa.setStudent_ID(student_ID);
             aa.setNote_name("笔记");
             aa.setCourse_name("课程");
-            aa.setText("111111111111111111111111112345555555555555555555555");
+            aa.setNote_text("111111111111111111111111112345555555555555555555555");
             list.add(aa);
         }
     }

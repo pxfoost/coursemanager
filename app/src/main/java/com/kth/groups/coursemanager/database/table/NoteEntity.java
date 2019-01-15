@@ -18,7 +18,7 @@ public class NoteEntity {
     @ColumnInfo
     private String course_name;
     @ColumnInfo
-    private String text;
+    private String note_text;
 
     public long getNote_ID() {
         return note_ID;
@@ -52,11 +52,11 @@ public class NoteEntity {
         this.course_name = course_name;
     }
 
-    public String getText() {
-        return text;
+    public String getNote_text() {
+        return note_text;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setNote_text(String note_text) {
+        this.note_text = note_text;
     }
 }

@@ -1,14 +1,11 @@
 package com.kth.groups.coursemanager;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.ListFragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,7 +19,6 @@ import com.kth.groups.coursemanager.database.AppDatabase;
 import com.kth.groups.coursemanager.database.dao.CourseDao;
 import com.kth.groups.coursemanager.database.table.CourseEntity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -37,12 +33,11 @@ public class CourseFragment extends Fragment {
 
 
     public static CourseFragment newInstance(String stuId) {
-        CourseFragment fragment = new CourseFragment();
-        student_ID = stuId;
 
+        student_ID = stuId;
         Log.d("student_ID:",student_ID);
 
-        return fragment;
+        return new CourseFragment();
     }
 
     @Override
@@ -66,7 +61,7 @@ public class CourseFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), CourseModifyActivity.class);
+                Intent intent = new Intent(getActivity(), CourseAddActivity.class);
                 intent.putExtra("student_ID", student_ID);
                 startActivity(intent);
             }

@@ -59,7 +59,7 @@ public abstract class AppDatabase extends RoomDatabase {
      *
      * @return SubjectDao实例
      */
-    public abstract UserDao getUserDao();
+    public abstract UserDao userDao();
 
     /**
      * 获取CourseDao的实例

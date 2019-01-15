@@ -20,13 +20,13 @@
         </activity>
         <activity android:name=".HomeActivity" />
         <activity android:name=".CourseDetailActivity" />
-        <activity android:name=".CourseModifyActivity" />
+        <activity android:name=".CourseAddActivity" />
         <activity
             android:name=".RegisterActivity"
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".NoteDetailActivity" />
-        <activity android:name=".NoteAddActivity"></activity>
+        <activity android:name=".NoteAddActivity" />
     </application>
 
 </manifest>

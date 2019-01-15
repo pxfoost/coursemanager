@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:textSize="18dp"
-                android:text="用户ID:"/>
+                android:text="账    号:"/>
             <EditText
                 android:id="@+id/ID"
                 android:layout_width="0dp"
@@ -187,4 +187,3 @@
             android:layout_below="@+id/line8"/>
     </RelativeLayout>
 </RelativeLayout>
-

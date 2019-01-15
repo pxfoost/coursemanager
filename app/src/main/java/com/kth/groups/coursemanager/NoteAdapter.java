@@ -44,7 +44,7 @@ public class NoteAdapter extends BaseAdapter {
         if(convertView == null){
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item_note,parent,false);
             holder = new ViewHolder();
-            holder.textView_note_image = convertView.findViewById(R.id.textView_note_image);
+            holder.textView_note_image = convertView.findViewById(R.id.note_image);
             holder.textView_note_name = convertView.findViewById(R.id.textView_note_name);
             holder.textView_note_text = convertView.findViewById(R.id.textView_note_text);
             convertView.setTag(holder);
@@ -56,7 +56,7 @@ public class NoteAdapter extends BaseAdapter {
 
         if(data != null){
             holder.textView_note_name.setText(data.getNote_name());
-            holder.textView_note_text.setText(data.getText());
+            holder.textView_note_text.setText(data.getNote_text());
         }
         return convertView;
     }

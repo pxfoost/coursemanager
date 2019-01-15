@@ -27,7 +27,7 @@ public class HomeActivity extends AppCompatActivity{
 
         //从LoginActivity中获得student_ID
         Intent intent = getIntent();
-        student_ID = intent.getStringExtra("student_ID");
+        student_ID = intent.getStringExtra("extra_data");
 
         Log.d("student_ID",student_ID);
 

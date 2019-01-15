@@ -3,34 +3,35 @@ package com.kth.groups.coursemanager.database.table;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Table_UserMsg")
+@Entity(tableName = "Table_UserMsg",indices = {@Index("student_ID")})
 public class UserEntity {
 
     @PrimaryKey
-    @NonNull private String student_ID;
-    @ColumnInfo
-    private String password;
-    @ColumnInfo
-    private String name;
-    @ColumnInfo
-    private String sex;
-    @ColumnInfo
-    private String school;
-    @ColumnInfo
-    private String department;
-    @ColumnInfo
-    private String major;
-    @ColumnInfo
-    private String grade;
+    @NonNull public String student_ID;
+    @ColumnInfo(name = "password")
+    public String password;
+    @ColumnInfo(name = "name")
+    public String name;
+    @ColumnInfo(name = "sex")
+    public String sex;
+    @ColumnInfo(name = "school")
+    public String school;
+    @ColumnInfo(name = "department")
+    public String department;
+    @ColumnInfo(name = "major")
+    public String major;
+    @ColumnInfo(name = "grade")
+    public String grade;
 
-    @NonNull
+
     public String getStudent_ID() {
         return student_ID;
     }
 
-    public void setStudent_ID(@NonNull String student_ID) {
+    public void setStudent_ID(String student_ID) {
         this.student_ID = student_ID;
     }
 

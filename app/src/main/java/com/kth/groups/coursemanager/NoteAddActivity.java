@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.text.LoginFilter;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,7 +21,7 @@ import com.kth.groups.coursemanager.database.table.NoteEntity;
 public class NoteAddActivity extends AppCompatActivity {
 
     private NoteDao noteDao = AppDatabase.getsInstance().getNoteDao();
-    BottomNavigationView bottomNavigationView;
+    private BottomNavigationView bottomNavigationView;
 
 
     @Override
@@ -29,7 +31,7 @@ public class NoteAddActivity extends AppCompatActivity {
 
         Toast.makeText(NoteAddActivity.this,"NoteAddActivity",Toast.LENGTH_SHORT).show();
 
-        bottomNavigationView = findViewById(R.id.bottom_navigation_view_note_add);
+        bottomNavigationView = findViewById(R.id.bottom_navigation_view_note_add1);
         bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
@@ -58,7 +60,7 @@ public class NoteAddActivity extends AppCompatActivity {
         noteEntity.setStudent_ID(student_ID);
         noteEntity.setNote_name(editText.getText().toString());
         noteEntity.setCourse_name(editText1.getText().toString());
-        noteEntity.setText(editText2.getText().toString());
+        noteEntity.setNote_text(editText2.getText().toString());
 
         Log.d("student_ID",student_ID);
         Log.d("note_name",editText.getText().toString());
